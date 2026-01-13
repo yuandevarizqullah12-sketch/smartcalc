@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Privacy Policy — SmartCalc</title>
+<meta name="description" content="Privacy Policy for SmartCalc — a privacy-first, local-only calculator. Learn what is (and isn't) stored, how consent works, and an attribution note about the code being generated with assistance from an AI chatbot. Includes downloadable MIT and BSD 3-Clause licenses and Indonesian translation." />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="logo.png" />
+
+<style>
+  :root{
+    --bg: #000;
+    --panel: #070707;
+    --card: linear-gradient(180deg,#0f0f10,#090909);
+    --muted: #9aa0a6;
+    --accent: #4cd964;
+    --glass: rgba(255,255,255,0.04);
+    --text: #e9e9e9;
+    --radius: 14px;
+    --max: 980px;
+    --shadow: 0 18px 60px rgba(0,0,0,0.7);
+    --ease: cubic-bezier(.2,.9,.3,1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+
+  html,body{
+    height:100%;
+    margin:0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    background: var(--bg);
+    color: var(--text);
+    line-height:1.5;
+  }
+
+  .wrap{ padding:20px; display:flex; justify-content:center; }
+  .panel{
+    max-width:var(--max);
+    width:100%;
+    background: var(--card);
+    border-radius: 16px;
+    padding:22px;
+    box-shadow: var(--shadow);
+    border:1px solid var(--glass);
+    overflow:hidden;
+  }
+
+  header.top { display:flex; gap:14px; align-items:center; }
+  header.top img.logo { width:52px; height:52px; border-radius:10px; object-fit:cover; border:1px solid rgba(255,255,255,0.03); }
+  header.top h1 { margin:0; font-size:20px; }
+  header.top p.lead { margin:4px 0 0 0; color:var(--muted); font-size:13px; }
+
+  .controls { margin-left:auto; display:flex; gap:8px; align-items:center; }
+
+  .lang-toggle { display:inline-flex; gap:6px; background:rgba(255,255,255,0.02); padding:6px; border-radius:8px; border:1px solid rgba(255,255,255,0.03); }
+  .lang-toggle button { background:transparent; color:var(--muted); border:none; padding:6px 8px; border-radius:6px; cursor:pointer; font-weight:600; }
+  .lang-toggle button.active { color:var(--text); background:rgba(76,217,100,0.06); border:1px solid rgba(76,217,100,0.08); }
+
+  .hero { margin-top:14px; display:flex; gap:12px; align-items:flex-start; }
+  .badge { background:rgba(76,217,100,0.06); color:var(--accent); padding:8px 10px; border-radius:999px; font-weight:600; font-size:13px; border:1px solid rgba(76,217,100,0.08); }
+
+  .content { margin-top:16px; display:grid; grid-template-columns: 1fr 320px; gap:16px; }
+  @media (max-width:920px){ .content { grid-template-columns:1fr; } }
+
+  article.main { padding-right:4px; }
+  article.main h2{ margin:16px 0 8px 0; font-size:16px; }
+  article.main p, article.main li { color:var(--muted); font-size:14px; }
+  article.main ul { margin-left:18px; }
+
+  aside.sidebar { background:linear-gradient(180deg,#0a0a0a,#060606); border-radius:12px; padding:12px; border:1px solid rgba(255,255,255,0.03); height:fit-content; }
+
+  .pill { background:#0b0b0b; padding:8px 10px; border-radius:999px; font-size:13px; border:1px solid rgba(255,255,255,0.03); color:var(--text); display:inline-block; margin-bottom:8px; }
+
+  .download-btn { display:inline-flex; gap:8px; align-items:center; padding:8px 10px; border-radius:8px; background:#0b0b0b; color:var(--text); border:1px solid rgba(255,255,255,0.03); text-decoration:none; font-size:13px; cursor:pointer; }
+  .download-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+
+  .note { margin-top:12px; background:rgba(255,255,255,0.02); border-radius:10px; padding:12px; border:1px solid rgba(255,255,255,0.03); color:var(--muted); font-size:13px; }
+
+  .faq { margin-top:14px; display:flex; flex-direction:column; gap:10px; }
+  .faq-item { border-radius:10px; overflow:hidden; border:1px solid rgba(255,255,255,0.03); background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005)); }
+  .faq-header { padding:12px; display:flex; justify-content:space-between; gap:12px; align-items:center; cursor:pointer; }
+  .faq-header h4 { margin:0; font-size:14px; color:var(--text); }
+  .faq-body { padding:0 12px 14px 12px; color:var(--muted); font-size:14px; line-height:1.5; max-height:0; overflow:hidden; transition: max-height 260ms var(--ease), padding 220ms var(--ease); }
+  .faq-item[open] .faq-body { padding:12px; max-height:400px; }
+
+  footer.small { margin-top:16px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  footer.small a.back { color:var(--muted); background:#0b0b0b; padding:8px 12px; border-radius:10px; text-decoration:none; border:1px solid rgba(255,255,255,0.03); font-size:13px; }
+  footer.small .legal { color:var(--muted); font-size:13px; }
+
+  code.inline { background:rgba(255,255,255,0.02); padding:2px 6px; border-radius:6px; color:#fff; }
+  a.link { color:var(--accent); text-decoration:none; }
+  a.link:hover { text-decoration:underline; }
+
+  .visually-hidden { position:absolute!important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+</style>
+</head>
+<body>
+  <main class="wrap" id="main">
+    <section class="panel" aria-labelledby="title">
+      <header class="top" role="banner">
+        <img src="logo.png" alt="SmartCalc logo" class="logo" />
+        <div>
+          <h1 id="title">Privacy Policy — SmartCalc</h1>
+          <p class="lead">Effective date: January 14, 2026 · Last updated: January 14, 2026</p>
+        </div>
+
+        <div class="controls" role="region" aria-label="Controls">
+          <div class="lang-toggle" role="tablist" aria-label="Language switch">
+            <button id="btn-en" class="active" role="tab" aria-selected="true">English</button>
+            <button id="btn-id" role="tab" aria-selected="false">Bahasa</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="hero" role="region" aria-label="Summary">
+        <div style="flex:1">
+          <p style="margin:0;color:var(--muted)">
+            SmartCalc is built to be fast, private, and useful. All calculations run locally in your browser; we do not collect or transmit
+            expressions or results to any remote server by default. This page explains what is stored (if anything), how consent works, and
+            includes an attribution note and downloadable short licenses (MIT / BSD 3-Clause).
+          </p>
+        </div>
+
+        <div style="margin-left:auto">
+          <span class="badge" aria-hidden="true">Privacy-First</span>
+        </div>
+      </div>
+
+      <div class="content" role="main">
+        <!-- English content block -->
+        <article class="main" id="lang-en" aria-labelledby="main-heading-en">
+          <h2 id="main-heading-en">Short summary</h2>
+          <p>
+            SmartCalc runs entirely in your browser. It stores only a small set of local items such as your calculation history and the
+            consent flag in <code class="inline">localStorage</code>. There is no server-side collection of your calculations unless you
+            explicitly share them (e.g., by copying/pasting or using external links).
+          </p>
+
+          <h2>What we store locally</h2>
+          <ul>
+            <li><strong>Calculation history</strong> — expressions and results, stored in <code class="inline">localStorage</code> on your device. Capped (100 entries) and not uploaded anywhere.</li>
+            <li><strong>Consent flag</strong> — whether you accepted the disclaimer checkbox that enables the calculator.</li>
+            <li><strong>UI preferences (optional)</strong> — small preferences like reduced motion or theme, stored locally to improve your experience.</li>
+          </ul>
+          <p class="muted">You can clear locally-stored data (history and consent flag) at any time via your browser's site data/settings or by using the Clear button in the app.</p>
+
+          <h2>What we do NOT collect</h2>
+          <ul>
+            <li>We do not collect names, email addresses, or personally-identifying data on our servers.</li>
+            <li>We do not send calculation expressions/results to any third-party servers by default.</li>
+            <li>We do not use analytics, trackers, or external fonts unless you (or the site owner) explicitly add them.</li>
+          </ul>
+
+          <h2>Consent and disclaimer</h2>
+          <p>
+            The calculator requires a user consent action ("I agree to the disclaimer") before it becomes usable. This checkbox is a local
+            convenience stored only in your browser; it does not transmit data. If you revoke consent (clear site data), the app will return
+            to the consent-required state. Consent is required to enable calculator functionality—without consent, calculation features remain disabled.
+          </p>
+
+          <h2>Important security notes</h2>
+          <p>
+            SmartCalc is client-side software. The security of locally-stored items depends on your device and browser. Use a modern, updated
+            browser, and avoid using public/shared devices for sensitive computations.
+          </p>
+
+          <h2>Third-party links</h2>
+          <p>
+            The app may link to third-party sites (GitHub, email, docs). Those sites operate under their own privacy policies. We are not
+            responsible for third-party data practices.
+          </p>
+
+          <h2>Attribution — code origin</h2>
+          <p class="muted">
+            The code for this web app was generated with the assistance of an AI chatbot — <strong>GPT-5 Thinking mini</strong>. The AI
+            produced the HTML, CSS, and JavaScript code only. <strong>This does not include deployment, hosting, legal advice, or operational
+            support.</strong> The site owner / developer is responsible for testing, deploying, hosting, securing, and ensuring compliance
+            with applicable laws.
+          </p>
+
+          <div class="note" role="note">
+            <strong>By using the code you acknowledge:</strong>
+            <ul style="margin:8px 0 0 18px;">
+              <li>The AI-assisted code is provided "as-is". Review, test, and modify before publishing.</li>
+              <li>Deployment, user data handling, and legal compliance are the developer's responsibility.</li>
+              <li>If you add analytics, ads, or server-side storage later, update this Privacy Policy to reflect those changes.</li>
+            </ul>
+          </div>
+
+          <!-- Downloadable licenses -->
+          <h2 style="margin-top:16px;">Downloadable short licenses (code)</h2>
+          <p class="muted">Choose a permissive license if you want others to reuse your code. Click to download a short text file. These licenses apply to the source code only; they do not grant rights to the SmartCalc name, logo, or branding assets.</p>
+
+          <div class="download-row" aria-hidden="false">
+            <a id="download-mit" class="download-btn" role="button" href="#" title="Download MIT license">Download MIT License</a>
+            <a id="download-bsd" class="download-btn" role="button" href="#" title="Download BSD 3-Clause license">Download BSD 3-Clause</a>
+          </div>
+
+          <h2 style="margin-top:16px;">FAQ</h2>
+          <div class="faq" aria-label="FAQ">
+            <div class="faq-item" id="faq1">
+              <div class="faq-header" tabindex="0" role="button" aria-expanded="false" aria-controls="faq1-body">
+                <h4>How do I delete my history?</h4>
+                <div class="chev">▸</div>
+              </div>
+              <div class="faq-body" id="faq1-body">
+                <p>Open the SmartCalc app and press the <strong>Clear</strong> button in the Calculation History panel. Alternatively,
+                clear site data in your browser to remove all localStorage entries for the site.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq2">
+              <div class="faq-header" tabindex="0" role="button" aria-expanded="false" aria-controls="faq2-body">
+                <h4>Is my data sent anywhere?</h4>
+                <div class="chev">▸</div>
+              </div>
+              <div class="faq-body" id="faq2-body">
+                <p>No — SmartCalc performs calculations locally and stores history locally. Nothing is transmitted by default. If you explicitly
+                share a result (for example by emailing or pasting to an external service), that is outside the app's local-only behavior.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq3">
+              <div class="faq-header" tabindex="0" role="button" aria-expanded="false" aria-controls="faq3-body">
+                <h4>Who is responsible for deployment?</h4>
+                <div class="chev">▸</div>
+              </div>
+              <div class="faq-body" id="faq3-body">
+                <p>The AI chatbot provided the source code only. Deployment, hosting, domain registration, SSL, and maintenance are the responsibility
+                of the developer or site owner. If you need help deploying, consult hosting provider docs or a web developer.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Indonesian content block -->
+        <article class="main" id="lang-id" lang="id" aria-labelledby="main-heading-id" style="display:none;">
+          <h2 id="main-heading-id">Ringkasan singkat</h2>
+          <p>
+            SmartCalc berjalan sepenuhnya di peramban Anda. Aplikasi hanya menyimpan beberapa item lokal seperti riwayat perhitungan dan flag
+            persetujuan di <code class="inline">localStorage</code>. Tidak ada pengumpulan perhitungan di server kecuali Anda secara eksplisit
+            membagikannya (mis. menyalin/menempel atau memakai tautan eksternal).
+          </p>
+
+          <h2>Apa yang disimpan secara lokal</h2>
+          <ul>
+            <li><strong>Riwayat perhitungan</strong> — ekspresi dan hasil, disimpan di <code class="inline">localStorage</code> pada perangkat Anda. Dibatasi (100 entri) dan tidak diunggah ke mana pun.</li>
+            <li><strong>Flag persetujuan</strong> — apakah Anda menyetujui kotak centang disclaimer yang mengaktifkan kalkulator.</li>
+            <li><strong>Preferensi UI (opsional)</strong> — preferensi kecil seperti reduced motion atau tema, disimpan secara lokal untuk meningkatkan pengalaman Anda.</li>
+          </ul>
+          <p class="muted">Anda dapat menghapus data yang disimpan secara lokal (riwayat dan flag persetujuan) kapan saja melalui pengaturan data situs/peramban Anda atau dengan menggunakan tombol Clear di aplikasi.</p>
+
+          <h2>Apa yang TIDAK kami kumpulkan</h2>
+          <ul>
+            <li>Kami tidak mengumpulkan nama, alamat email, atau data identifikasi pribadi di server kami.</li>
+            <li>Kami tidak mengirim ekspresi/hasil perhitungan ke server pihak ketiga secara default.</li>
+            <li>Kami tidak menggunakan analytics, tracker, atau font eksternal kecuali Anda (atau pemilik situs) menambahkannya secara eksplisit.</li>
+          </ul>
+
+          <h2>Persetujuan dan disclaimer</h2>
+          <p>
+            Kalkulator memerlukan tindakan persetujuan pengguna ("I agree to the disclaimer") sebelum dapat digunakan. Kotak centang ini
+            disimpan secara lokal di peramban dan tidak mengirim data. Jika Anda mencabut persetujuan (menghapus data situs), aplikasi akan
+            kembali ke keadaan yang memerlukan persetujuan. Persetujuan diperlukan untuk mengaktifkan fungsi kalkulator — tanpa persetujuan, fitur perhitungan tetap dinonaktifkan.
+          </p>
+
+          <h2>Catatan keamanan penting</h2>
+          <p>
+            SmartCalc adalah perangkat lunak sisi-klien. Keamanan data yang disimpan secara lokal bergantung pada perangkat dan peramban Anda.
+            Gunakan peramban modern yang diperbarui, dan hindari menggunakan perangkat publik/bersama untuk perhitungan sensitif.
+          </p>
+
+          <h2>Tautan pihak ketiga</h2>
+          <p>
+            Aplikasi dapat menautkan ke situs pihak ketiga (GitHub, email, dokumentasi). Situs tersebut tunduk pada kebijakan privasi mereka
+            sendiri. Kami tidak bertanggung jawab atas praktik privasi pihak ketiga.
+          </p>
+
+          <h2>Atribusi — asal kode</h2>
+          <p class="muted">
+            Kode aplikasi web ini dibuat dengan bantuan chatbot AI — <strong>GPT-5 Thinking mini</strong>. AI menghasilkan kode HTML, CSS, dan
+            JavaScript saja. <strong>Ini tidak termasuk deployment, hosting, nasihat hukum, atau dukungan operasional.</strong> Pemilik situs /
+            pengembang bertanggung jawab untuk pengujian, deployment, hosting, pengamanan, dan kepatuhan terhadap hukum yang berlaku.
+          </p>
+
+          <div class="note" role="note">
+            <strong>Dengan menggunakan kode Anda menyatakan:</strong>
+            <ul style="margin:8px 0 0 18px;">
+              <li>Kode hasil bantuan AI disediakan "apa adanya". Periksa, uji, dan modifikasi sebelum dipublikasikan.</li>
+              <li>Deployment, penanganan data pengguna, dan kepatuhan hukum menjadi tanggung jawab pengembang.</li>
+              <li>Jika Anda menambahkan analytics, iklan, atau penyimpanan sisi-server nanti, perbarui Privacy Policy ini.</li>
+            </ul>
+          </div>
+
+          <h2 style="margin-top:16px;">Lisensi singkat yang dapat diunduh (kode)</h2>
+          <p class="muted">Pilih lisensi permisif jika Anda ingin orang lain dapat menggunakan kembali kode Anda. Klik untuk mengunduh berkas teks. Lisensi ini berlaku untuk kode sumber saja; bukan untuk nama, logo, atau aset branding SmartCalc.</p>
+
+          <div class="download-row">
+            <a id="download-mit-id" class="download-btn" role="button" href="#" title="Unduh lisensi MIT">Unduh Lisensi MIT</a>
+            <a id="download-bsd-id" class="download-btn" role="button" href="#" title="Unduh lisensi BSD 3-Klausul">Unduh BSD 3-Klausul</a>
+          </div>
+
+          <h2 style="margin-top:16px;">FAQ</h2>
+          <div class="faq" aria-label="FAQ in Indonesian">
+            <div class="faq-item" id="faqid1">
+              <div class="faq-header" tabindex="0" role="button" aria-expanded="false" aria-controls="faqid1-body">
+                <h4>Bagaimana cara menghapus riwayat saya?</h4>
+                <div class="chev">▸</div>
+              </div>
+              <div class="faq-body" id="faqid1-body">
+                <p>Buka aplikasi SmartCalc dan tekan tombol <strong>Clear</strong> di panel Calculation History. Alternatifnya, bersihkan data situs di peramban Anda untuk menghapus semua entri localStorage untuk domain ini.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" id="faqid2">
+              <div class="faq-header" tabindex="0" role="button" aria-expanded="false" aria-controls="faqid2-body">
+                <h4>Apakah data saya dikirim ke mana pun?</h4>
+                <div class="chev">▸</div>
+              </div>
+              <div class="faq-body" id="faqid2-body">
+                <p>Tidak — SmartCalc melakukan perhitungan secara lokal dan menyimpan riwayat secara lokal. Tidak ada yang dikirim secara default. Jika Anda membagikan hasil (mis. lewat email), itu di luar perilaku lokal aplikasi.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" id="faqid3">
+              <div class="faq-header" tabindex="0" role="button" aria-expanded="false" aria-controls="faqid3-body">
+                <h4>Siapa yang bertanggung jawab untuk deployment?</h4>
+                <div class="chev">▸</div>
+              </div>
+              <div class="faq-body" id="faqid3-body">
+                <p>Chatbot AI hanya menyediakan kode sumber. Deployment, hosting, registrasi domain, SSL, dan pemeliharaan adalah tanggung jawab pengembang atau pemilik situs.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <footer class="small" role="contentinfo">
+        <a class="back" href="index.html" aria-label="Return to SmartCalc">← Return to SmartCalc</a>
+        <div class="legal">SmartCalc — privacy-first calculator • © 2026 • English is the primary legal text</div>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      // Language toggle
+      const btnEn = document.getElementById('btn-en');
+      const btnId = document.getElementById('btn-id');
+      const enBlock = document.getElementById('lang-en');
+      const idBlock = document.getElementById('lang-id');
+
+      function showEN(){
+        enBlock.style.display = '';
+        idBlock.style.display = 'none';
+        btnEn.classList.add('active'); btnEn.setAttribute('aria-selected','true');
+        btnId.classList.remove('active'); btnId.setAttribute('aria-selected','false');
+        document.documentElement.lang = 'en';
+      }
+      function showID(){
+        enBlock.style.display = 'none';
+        idBlock.style.display = '';
+        btnId.classList.add('active'); btnId.setAttribute('aria-selected','true');
+        btnEn.classList.remove('active'); btnEn.setAttribute('aria-selected','false');
+        document.documentElement.lang = 'id';
+      }
+      btnEn.addEventListener('click', showEN);
+      btnId.addEventListener('click', showID);
+
+      // initialize English
+      showEN();
+
+      // Collapsible FAQ
+      const faqHeaders = document.querySelectorAll('.faq-header');
+      faqHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const item = header.parentElement;
+          const body = header.nextElementSibling;
+          const chev = header.querySelector('.chev');
+          const isOpen = item.hasAttribute('open');
+          if (isOpen){
+            item.removeAttribute('open');
+            header.setAttribute('aria-expanded','false');
+            chev.style.transform = 'rotate(0deg)';
+            body.style.maxHeight = null;
+          } else {
+            item.setAttribute('open','');
+            header.setAttribute('aria-expanded','true');
+            chev.style.transform = 'rotate(90deg)';
+            body.style.maxHeight = body.scrollHeight + 'px';
+          }
+        });
+        header.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); header.click(); }
+        });
+      });
+
+      // License texts
+      const mitText = `MIT License
+
+Copyright (c) 2026 SmartCalc
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.`;
+
+      const bsdText = `BSD 3-Clause License
+
+Copyright (c) 2026, SmartCalc
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+3. Neither the name of the copyright holder nor the names of its
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`;
+
+      // Setup download links (create blob URLs)
+      function makeDownloadLink(elemId, text, filename){
+        const el = document.getElementById(elemId);
+        if (!el) return;
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          try {
+            const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 30000);
+          } catch (err) {
+            // fallback to data URI (rare)
+            const dataUri = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+            const a = document.createElement('a');
+            a.href = dataUri;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+          }
+        });
+      }
+
+      makeDownloadLink('download-mit', mitText, 'SMARTCALC-MIT.txt');
+      makeDownloadLink('download-bsd', bsdText, 'SMARTCALC-BSD-3-Clause.txt');
+      makeDownloadLink('download-mit-id', mitText, 'SMARTCALC-MIT.txt');
+      makeDownloadLink('download-bsd-id', bsdText, 'SMARTCALC-BSD-3-Clause.txt');
+
+      // Accessibility: ensure focus styles for toggles
+      document.querySelectorAll('.download-btn').forEach(btn => {
+        btn.addEventListener('keydown', (e) => { if (e.key === 'Enter') btn.click(); });
+      });
+
+    })();
+  </script>
+</body>
+</html>
