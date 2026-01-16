@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Terms of Service — SmartCalc</title>
+<meta name="description" content="Terms of Service for SmartCalc — short, readable, and developer-protective terms for a client-side calculator. English and Indonesian versions included." />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="logo.png" />
+
+<style>
+  :root{
+    --bg: #000;
+    --panel: #070707;
+    --card: linear-gradient(180deg,#0f0f10,#090909);
+    --muted: #9aa0a6;
+    --accent: #4cd964;
+    --glass: rgba(255,255,255,0.04);
+    --text: #e9e9e9;
+    --radius: 14px;
+    --max: 980px;
+    --shadow: 0 18px 60px rgba(0,0,0,0.7);
+    --ease: cubic-bezier(.2,.9,.3,1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+
+  html,body{ height:100%; margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; background: var(--bg); color: var(--text); line-height:1.6; }
+  .wrap{ padding:20px; display:flex; justify-content:center; }
+  .panel{ max-width:var(--max); width:100%; background: var(--card); border-radius: 16px; padding:22px; box-shadow: var(--shadow); border:1px solid var(--glass); overflow:hidden; }
+  header.top { display:flex; gap:14px; align-items:center; }
+  header.top img.logo { width:52px; height:52px; border-radius:10px; object-fit:cover; border:1px solid rgba(255,255,255,0.03); }
+  header.top h1 { margin:0; font-size:20px; }
+  header.top p.lead { margin:4px 0 0 0; color:var(--muted); font-size:13px; }
+
+  .controls { margin-left:auto; display:flex; gap:8px; align-items:center; }
+  .lang-toggle { display:inline-flex; gap:6px; background:rgba(255,255,255,0.02); padding:6px; border-radius:8px; border:1px solid rgba(255,255,255,0.03); }
+  .lang-toggle button { background:transparent; color:var(--muted); border:none; padding:6px 8px; border-radius:6px; cursor:pointer; font-weight:600; }
+  .lang-toggle button.active { color:var(--text); background:rgba(76,217,100,0.06); border:1px solid rgba(76,217,100,0.08); }
+
+  .content { margin-top:16px; display:grid; grid-template-columns: 1fr 320px; gap:16px; }
+  @media (max-width:920px){ .content { grid-template-columns:1fr; } }
+  article.main { padding-right:4px; }
+  article.main h2{ margin:16px 0 8px 0; font-size:16px; }
+  article.main p, article.main li { color:var(--muted); font-size:14px; }
+  article.main ul { margin-left:18px; }
+  aside.sidebar { background:linear-gradient(180deg,#0a0a0a,#060606); border-radius:12px; padding:12px; border:1px solid rgba(255,255,255,0.03); height:fit-content; }
+  .pill { background:#0b0b0b; padding:8px 10px; border-radius:999px; font-size:13px; border:1px solid rgba(255,255,255,0.03); color:var(--text); display:inline-block; margin-bottom:8px; }
+  .download-btn { display:inline-flex; gap:8px; align-items:center; padding:8px 10px; border-radius:8px; background:#0b0b0b; color:var(--text); border:1px solid rgba(255,255,255,0.03); text-decoration:none; font-size:13px; cursor:pointer; }
+  .note { margin-top:12px; background:rgba(255,255,255,0.02); border-radius:10px; padding:12px; border:1px solid rgba(255,255,255,0.03); color:var(--muted); font-size:13px; }
+  .faq { margin-top:14px; display:flex; flex-direction:column; gap:10px; }
+  .faq-item { border-radius:10px; overflow:hidden; border:1px solid rgba(255,255,255,0.03); background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005)); }
+  .faq-header { padding:12px; display:flex; justify-content:space-between; gap:12px; align-items:center; cursor:pointer; }
+  .faq-header h4 { margin:0; font-size:14px; color:var(--text); }
+  .faq-body { padding:0 12px 14px 12px; color:var(--muted); font-size:14px; line-height:1.5; max-height:0; overflow:hidden; transition: max-height 260ms var(--ease), padding 220ms var(--ease); }
+  .faq-item[open] .faq-body { padding:12px; max-height:400px; }
+  footer.small { margin-top:16px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  footer.small a.back { color:var(--muted); background:#0b0b0b; padding:8px 12px; border-radius:10px; text-decoration:none; border:1px solid rgba(255,255,255,0.03); font-size:13px; }
+  footer.small .legal { color:var(--muted); font-size:13px; }
+  code.inline { background:rgba(255,255,255,0.02); padding:2px 6px; border-radius:6px; color:#fff; }
+  a.link { color:var(--accent); text-decoration:none; }
+  a.link:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+  <main class="wrap" id="main">
+    <section class="panel" aria-labelledby="title">
+      <header class="top" role="banner">
+        <img src="logo.png" alt="SmartCalc logo" class="logo" />
+        <div>
+          <h1 id="title">Terms of Service — SmartCalc</h1>
+          <p class="lead">Effective date: January 14, 2026 · Last updated: January 16, 2026</p>
+        </div>
+
+        <div class="controls" role="region" aria-label="Controls">
+          <div class="lang-toggle" role="tablist" aria-label="Language switch">
+            <button id="btn-en" class="active" role="tab" aria-selected="true">English</button>
+            <button id="btn-id" role="tab" aria-selected="false">Bahasa</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="hero" role="region" aria-label="Summary">
+        <div style="flex:1">
+          <p style="margin:0;color:var(--muted)">Simple, clear, and developer-protective terms for SmartCalc — a client-side calculator. Read these terms before using the site. ⚖️</p>
+        </div>
+
+        
+      </div>
+
+      <div class="content" role="main">
+        <!-- English -->
+        <article class="main" id="lang-en" aria-labelledby="heading-en">
+          <h2 id="heading-en">1. Acceptance of Terms ✅</h2>
+          <p>By accessing or using SmartCalc (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Service.</p>
+
+          <h2>2. Description of Service 🧮</h2>
+          <p>SmartCalc is a browser-based calculator that executes all logic locally on your device. The Service provides calculation tools and UI features; it does not require server-side processing for core functionality unless explicitly added by the site owner.</p>
+
+          <h2>3. Changes to the Service & Terms ✍️</h2>
+          <p>We may modify the Service or update these Terms at any time. When we make material changes, we will update the "Last updated" date above. Continued use after changes means you accept the updated Terms.</p>
+
+          <h2>4. User responsibilities ✅</h2>
+          <ul>
+            <li>You must use the Service lawfully and ethically.</li>
+            <li>Do not reverse-engineer, decompile, or attempt to extract source code except as permitted by the license.</li>
+            <li>Do not attempt to disrupt the Service or perform actions that may harm other users or the infrastructure (e.g., automated scraping, DDoS).</li>
+          </ul>
+
+          <h2>5. Prohibited Uses 🚫</h2>
+          <p>Do not use SmartCalc for illegal activities, for generating illegal content, or to assist actions that cause harm. Also avoid using SmartCalc on shared/public devices for sensitive computations.</p>
+
+          <h2>6. No warranty — "AS IS" ⚠️</h2>
+          <p>The Service is provided "as is" and "as available". We do not warrant that the Service will be uninterrupted, error-free, or secure. Calculations may be imprecise and should not be relied upon for professional, medical, legal, or financial decisions.</p>
+
+          <h2>7. Limitation of liability 🛡️</h2>
+          <p>To the maximum extent permitted by law, neither the developer nor contributors will be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Service (including loss of data, profits, or goodwill).</p>
+
+          <h2>8. Intellectual property & license 🔐</h2>
+          <p>All content, design, and code provided on this site are owned by the developer unless noted otherwise. The source code is licensed under the <strong>MIT License</strong> (see the Privacy Policy page for downloadable license text). The BSD 3-Clause text is provided only as an alternative/template — the MIT license governs the project unless explicitly changed in the repository.</p>
+
+          <h2>9. Third-party services & links 🔗</h2>
+          <p>The Service may link to third-party websites (e.g., GitHub). Those services have their own terms and policies; SmartCalc is not responsible for their content or privacy practices.</p>
+
+          <h2>10. Termination 🛑</h2>
+          <p>We may suspend or terminate access to the Service for any reason, including violation of these Terms. Termination does not limit other legal remedies.</p>
+
+          <h2>11. Indemnification 🤝</h2>
+          <p>You agree to indemnify, defend, and hold harmless the developer and contributors from any claims, losses, liabilities, damages, costs, and expenses (including reasonable attorney fees) arising from your use of the Service, violation of these Terms, or infringement of any third-party rights.</p>
+
+          <h2>12. Disputes & resolution ⚖️</h2>
+          <p>If any issue arises, we prefer to resolve it informally — please contact us first. This website is a simple, non-commercial tool; no specific national jurisdiction is designated. We encourage friendly resolution or mediation before pursuing formal legal steps.</p>
+
+          <h2>13. Miscellaneous ✨</h2> Miscellaneous ✨</h2>
+          <ul>
+            <li>If any provision is unenforceable, the remainder of the Terms will remain in effect.</li>
+            <li>These Terms, together with the Privacy Policy, constitute the entire agreement between you and the developer regarding the Service.</li>
+            <li>No waiver of any provision will be effective unless in writing and signed by the developer.</li>
+          </ul>
+
+          <h2>14. Contact 📬</h2>
+          <p>For questions about these Terms or the Service, contact the developer at: <a class="link" href="mailto:yuandevarizqullah12@gmail.com">yuandevarizqullah12@gmail.com</a>.</p>
+
+          <div class="note"><strong>Important:</strong> This Terms of Service is a plain-language, general-purpose template intended to help protect a small web project. It does not constitute legal advice. If you need formal legal protection, consult a qualified attorney.</div>
+
+          
+        </article>
+
+        <!-- Indonesian -->
+        <article class="main" id="lang-id" lang="id" aria-labelledby="heading-id" style="display:none;">
+          <h2 id="heading-id">1. Penerimaan Ketentuan ✅</h2>
+          <p>Dengan mengakses atau menggunakan SmartCalc ("Layanan"), Anda menyetujui Ketentuan Layanan ini ("Ketentuan"). Jika Anda tidak setuju, jangan gunakan Layanan ini.</p>
+
+          <h2>2. Deskripsi Layanan 🧮</h2>
+          <p>SmartCalc adalah kalkulator berbasis peramban yang menjalankan logika sepenuhnya di perangkat Anda. Layanan menyediakan alat perhitungan dan fitur UI; tidak membutuhkan proses sisi-server untuk fungsi inti kecuali ditambahkan oleh pemilik situs.</p>
+
+          <h2>3. Perubahan Layanan & Ketentuan ✍️</h2>
+          <p>Kami dapat memodifikasi Layanan atau memperbarui Ketentuan kapan saja. Ketika ada perubahan material, kami akan memperbarui tanggal "Last updated" di atas. Penggunaan terus-menerus setelah perubahan berarti Anda menerima Ketentuan yang diperbarui.</p>
+
+          <h2>4. Tanggung Jawab Pengguna ✅</h2>
+          <ul>
+            <li>Gunakan Layanan secara sah dan etis.</li>
+            <li>Jangan melakukan rekayasa balik, dekompilasi, atau upaya untuk mengekstrak kode sumber kecuali diizinkan oleh lisensi.</li>
+            <li>Jangan mencoba mengganggu Layanan atau melakukan tindakan yang membahayakan pengguna lain atau infrastruktur (mis. scraping otomatis, DDoS).</li>
+          </ul>
+
+          <h2>5. Penggunaan yang Dilarang 🚫</h2>
+          <p>Jangan gunakan SmartCalc untuk aktivitas ilegal, membuat konten ilegal, atau membantu tindakan yang menyebabkan bahaya. Hindari menggunakan SmartCalc pada perangkat publik/bersama untuk perhitungan sensitif.</p>
+
+          <h2>6. Tanpa Jaminan — "AS IS" ⚠️</h2>
+          <p>Layanan disediakan "apa adanya" dan "sebagaimana tersedia". Kami tidak menjamin Layanan bebas gangguan, tanpa kesalahan, atau aman. Hasil perhitungan mungkin tidak akurat dan tidak boleh diandalkan untuk keputusan profesional, medis, hukum, atau keuangan.</p>
+
+          <h2>7. Batasan Tanggung Jawab 🛡️</h2>
+          <p>Sejauh diizinkan oleh hukum, pengembang dan kontributor tidak bertanggung jawab atas kerusakan tidak langsung, insidental, khusus, konsekuensial, atau hukuman yang timbul dari penggunaan Layanan (termasuk kehilangan data, keuntungan, atau reputasi).</p>
+
+          <h2>8. Hak Kekayaan Intelektual & Lisensi 🔐</h2>
+          <p>Semua konten, desain, dan kode di situs ini dimiliki oleh pengembang kecuali dinyatakan lain. Kode sumber dilisensikan di bawah <strong>MIT License</strong>. Teks BSD 3-Klausul disediakan hanya sebagai template/alternatif — lisensi MIT adalah lisensi yang berlaku kecuali Anda secara eksplisit mengubahnya di repositori.</p>
+
+          <h2>9. Layanan & Tautan Pihak Ketiga 🔗</h2>
+          <p>Layanan dapat menautkan ke situs pihak ketiga (mis. GitHub). Layanan pihak ketiga memiliki syarat dan kebijakan masing-masing; SmartCalc tidak bertanggung jawab atas konten atau praktik privasi mereka.</p>
+
+          <h2>10. Penghentian 🛑</h2>
+          <p>Kami dapat menangguhkan atau menghentikan akses ke Layanan jika terjadi pelanggaran Ketentuan. Penghentian tidak membatasi hak hukum lainnya.</p>
+
+          <h2>11. Ganti Rugi 🤝</h2>
+          <p>Anda setuju untuk mengganti kerugian, membela, dan membebaskan pengembang dan kontributor dari klaim, kerugian, kewajiban, biaya, dan pengeluaran (termasuk biaya pengacara yang wajar) yang timbul dari penggunaan Layanan, pelanggaran Ketentuan, atau pelanggaran hak pihak ketiga.</p>
+
+          <h2>12. Perselisihan & Penyelesaian ⚖️</h2>
+          <p>Jika terjadi masalah, kami lebih memilih penyelesaian secara informal — silakan hubungi kami terlebih dahulu. Situs ini adalah alat sederhana dan non-komersial; tidak ada yurisdiksi nasional yang ditetapkan. Kami mendorong penyelesaian ramah atau mediasi sebelum menempuh langkah hukum formal.</p>
+
+          <h2>13. Ketentuan Lainnya ✨</h2> Ketentuan Lainnya ✨</h2>
+          <ul>
+            <li>Jika suatu ketentuan tidak dapat dilaksanakan, sisa Ketentuan tetap berlaku.</li>
+            <li>Ketentuan ini dan Privacy Policy merupakan keseluruhan perjanjian antara Anda dan pengembang terkait Layanan.</li>
+            <li>Tidak ada pengesampingan kecuali tertulis dan ditandatangani oleh pengembang.</li>
+          </ul>
+
+          <h2>14. Kontak 📬</h2>
+          <p>Untuk pertanyaan tentang Ketentuan ini atau Layanan, hubungi: <a class="link" href="mailto:yuandevarizqullah12@gmail.com">yuandevarizqullah12@gmail.com</a>.</p>
+
+          <div class="note"><strong>Penting:</strong> Dokumen ini adalah template berbahasa sederhana untuk proyek web kecil dan bukan nasihat hukum. Jika Anda memerlukan perlindungan hukum resmi, konsultasikan pengacara.</div>
+
+          <h2 style="margin-top:16px;">— Akhir bagian Bahasa Indonesia —</h2>
+        </article>
+      </div>
+
+      <footer class="small" role="contentinfo">
+        <a class="back" href="index.html" aria-label="Return to SmartCalc">← Return to SmartCalc</a>
+        <div class="legal">SmartCalc — terms of service • © 2026 • English is the primary legal text</div>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      // Language toggle
+      const btnEn = document.getElementById('btn-en');
+      const btnId = document.getElementById('btn-id');
+      const enBlock = document.getElementById('lang-en');
+      const idBlock = document.getElementById('lang-id');
+      function showEN(){ enBlock.style.display = ''; idBlock.style.display = 'none'; btnEn.classList.add('active'); btnEn.setAttribute('aria-selected','true'); btnId.classList.remove('active'); btnId.setAttribute('aria-selected','false'); document.documentElement.lang = 'en'; }
+      function showID(){ enBlock.style.display = 'none'; idBlock.style.display = ''; btnId.classList.add('active'); btnId.setAttribute('aria-selected','true'); btnEn.classList.remove('active'); btnEn.setAttribute('aria-selected','false'); document.documentElement.lang = 'id'; }
+      btnEn.addEventListener('click', showEN); btnId.addEventListener('click', showID);
+      // initialize English
+      showEN();
+      // Collapsible FAQ (if any future items)
+      const faqHeaders = document.querySelectorAll('.faq-header');
+      faqHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const item = header.parentElement; const body = header.nextElementSibling; const chev = header.querySelector('.chev'); const isOpen = item.hasAttribute('open');
+          if (isOpen){ item.removeAttribute('open'); header.setAttribute('aria-expanded','false'); if (chev) chev.style.transform = 'rotate(0deg)'; body.style.maxHeight = null; } else { item.setAttribute('open',''); header.setAttribute('aria-expanded','true'); if (chev) chev.style.transform = 'rotate(90deg)'; body.style.maxHeight = body.scrollHeight + 'px'; }
+        });
+        header.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); header.click(); } });
+      });
+    })();
+  </script>
+</body>
+</html>

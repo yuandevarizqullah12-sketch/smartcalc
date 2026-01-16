@@ -192,9 +192,20 @@
             </ul>
           </div>
 
+          <!-- Terms of Service short section -->
+          <h2 style="margin-top:16px;">Terms of Service (short)</h2>
+          <p class="muted">This site provides a client-side calculator. By using SmartCalc you agree to basic usage terms: do not attempt to misuse the service, do not claim the SmartCalc name or logo as your own, and accept that the developer is responsible for hosting and support. For the full terms, open the Terms of Service page.</p>
+
+          <div class="download-row" aria-hidden="false">
+            <a id="download-tos" class="download-btn" role="button" href="tos.html" title="Open Terms of Service">Terms of Services</a>
+          </div>
+
           <!-- Downloadable licenses -->
           <h2 style="margin-top:16px;">Downloadable short licenses (code)</h2>
           <p class="muted">Choose a permissive license if you want others to reuse your code. Click to download a short text file. These licenses apply to the source code only; they do not grant rights to the SmartCalc name, logo, or branding assets.</p>
+
+          <!-- License clarification (new) -->
+          <p><strong>License note:</strong> This project uses the <em>MIT License</em> as the primary license for the source code. The BSD 3-Clause text is provided only as a template/alternative — the MIT license is the definitive license unless you explicitly change it in your repository.</p>
 
           <div class="download-row" aria-hidden="false">
             <a id="download-mit" class="download-btn" role="button" href="#" title="Download MIT license">Download MIT License</a>
@@ -297,8 +308,19 @@
             </ul>
           </div>
 
+          <!-- Terms of Service short section (ID) -->
+          <h2 style="margin-top:16px;">Terms of Service (singkat)</h2>
+          <p class="muted">Situs ini menyediakan kalkulator sisi-klien. Dengan menggunakan SmartCalc, Anda setuju pada ketentuan dasar penggunaan: jangan menyalahgunakan layanan, jangan mengklaim nama atau logo SmartCalc sebagai milik Anda, dan pahami bahwa pengembang bertanggung jawab atas hosting dan dukungan. Untuk ketentuan lengkap, buka halaman Terms of Service.</p>
+
+          <div class="download-row">
+            <a id="download-tos-id" class="download-btn" role="button" href="tos.html" title="Buka Terms of Service">Terms of Services</a>
+          </div>
+
           <h2 style="margin-top:16px;">Lisensi singkat yang dapat diunduh (kode)</h2>
           <p class="muted">Pilih lisensi permisif jika Anda ingin orang lain dapat menggunakan kembali kode Anda. Klik untuk mengunduh berkas teks. Lisensi ini berlaku untuk kode sumber saja; bukan untuk nama, logo, atau aset branding SmartCalc.</p>
+
+          <!-- License clarification (ID) -->
+          <p><strong>Catatan lisensi:</strong> Proyek ini menggunakan <em>MIT License</em> sebagai lisensi utama untuk kode sumber. Teks BSD 3-Klausul disediakan hanya sebagai template/alternatif — lisensi MIT adalah lisensi definitif kecuali Anda secara eksplisit mengubahnya di repositori Anda.</p>
 
           <div class="download-row">
             <a id="download-mit-id" class="download-btn" role="button" href="#" title="Unduh lisensi MIT">Unduh Lisensi MIT</a>
@@ -456,6 +478,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`;
         const el = document.getElementById(elemId);
         if (!el) return;
         el.addEventListener('click', (e) => {
+          // if it's a link to another page (tos.html), let it navigate
+          if (el.getAttribute('href') && el.getAttribute('href').endsWith('.html')) return;
           e.preventDefault();
           try {
             const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });

@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://smartcalc-one.vercel.app/</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,7 +12,15 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://smartcalc-one.vercel.app/privacy_policy.html</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://smartcalc-one.vercel.app/tos.html</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
